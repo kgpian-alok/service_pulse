@@ -15,7 +15,9 @@ connectDB();
 const app = express();
 const server = http.createServer(app);
 const io = new Server(server, { cors: { origin: "*" } });
-
+app.get("/", (req, res) => {
+  res.send("Hello from backend");
+});
 app.use(cors());
 app.use(express.json());
 app.set("io", io);
